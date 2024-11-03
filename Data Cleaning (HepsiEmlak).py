@@ -19,4 +19,6 @@ df_1 = df_1.loc[:, ~df_1.columns.str.contains('^Unnamed')]
 df_1 = df_1.drop(columns=["Floor_Encoded","Location_Encoded"],axis=1)
 
 df_new = pd.concat([df,df_1])
+df['District'] = df['Location'].str.split('-').str[0].str.strip()
+
 #df_new.to_csv("ultimate_rent_price_dataset.csv")

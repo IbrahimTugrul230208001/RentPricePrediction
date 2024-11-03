@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split,cross_val_score,GridSearchC
 import pandas as pd
 import xgboost as xgb
 
-df = pd.read_csv("Ankara Rent Prices/modeling_data.csv")
+df = pd.read_csv("Datasets/modeling_data.csv")
 df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
 
 X= df.drop('Price',axis=1)
@@ -23,7 +23,7 @@ rf.fit(X_train,y_train)
 y_pred = rf.predict(X_test)
 score = r2_score(y_test,y_pred)
 
-print(score)
+print(f"R2 Score : {score}")
 
 #0.9412...
 """
